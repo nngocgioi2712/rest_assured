@@ -4,6 +4,7 @@ import com.gioinn.apis.posts.DeletePost;
 import com.gioinn.apis.posts.UpdatePostByPut;
 import com.gioinn.base.BaseTest;
 import com.gioinn.models.Post;
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 public class DeletePostTest extends BaseTest {
@@ -11,7 +12,9 @@ public class DeletePostTest extends BaseTest {
 
     @Test
     public void deletePostTest() {
-        deletePost.deletePost("3").
-                then().assertThat().statusCode(200);
+        Response res = deletePost.deletePost("4");
+        res.then()
+                .assertThat()
+                    .statusCode(200);
     }
 }

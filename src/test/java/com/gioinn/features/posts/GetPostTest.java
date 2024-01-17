@@ -14,18 +14,17 @@ public class GetPostTest extends BaseTest {
     @Test
     public void getPostsListTest() {
         Response res = getPostsList.getPostsList();
-        res.then().
-                assertThat().
-                    body(matchesJsonSchemaInClasspath("schema/post-schema.json")).
-                    statusCode(200);
-
+        res.then()
+                .assertThat()
+                    .body(matchesJsonSchemaInClasspath("schema/post-schema.json"))
+                    .statusCode(200);
     }
 
     @Test
-    public void getPostByIdTest(String id) {
-        Response res = getPostByID.getPostByID(id);
-        res.then().
-                assertThat().
-                statusCode(200);
+    public void getPostByIdTest() {
+        Response res = getPostByID.getPostByID("3");
+        res.then()
+                .assertThat()
+                    .statusCode(200);
     }
 }

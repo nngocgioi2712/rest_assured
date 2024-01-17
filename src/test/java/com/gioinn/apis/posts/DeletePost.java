@@ -9,6 +9,6 @@ import static io.restassured.RestAssured.given;
 public class DeletePost {
     public Response deletePost(String id) {
         return given().
-                delete("/posts" + id);
+                delete("/posts/" + id);
     }
 }

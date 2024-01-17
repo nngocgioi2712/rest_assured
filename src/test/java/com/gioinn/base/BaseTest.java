@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 public class BaseTest {
     @BeforeClass
     public void init(){
-        RestAssured.baseURI ="https://dummyjson.com";
-        RestAssured.basePath = "/products";
+        RestAssured.baseURI ="http://localhost:3000/";
+//        RestAssured.basePath = "/products";
     }
 }

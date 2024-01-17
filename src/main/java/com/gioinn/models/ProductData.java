@@ -1,16 +1,13 @@
 package com.gioinn.models;
 
-import lombok.Data;
-
 import java.util.List;
 
-@Data
-public class Product {
+public class ProductData {
     private int id;
     private String title;
     private String description;
     private int price;
-    private double discount;
+    private double discountPercentage;
     private double rating;
     private int stock;
     private String brand;
