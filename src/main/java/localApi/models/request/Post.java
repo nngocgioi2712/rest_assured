@@ -1,4 +1,4 @@
-package com.gioinn.models;
+package localApi.models.request;
 
 import lombok.Data;
 
@@ -6,4 +6,6 @@ import lombok.Data;
 public class Post {
     private String id;
     private String title;
+    private String desc;
+    private String user;
 }
