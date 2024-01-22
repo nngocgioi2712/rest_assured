@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="local_api">
+    <test name="context_1">
+        <classes>
+            <class name="localApi.api.test.PostTests"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="context_2">
+        <classes>
+            <class name="localApi.api.test.PostTests">
+            <methods>
+                <include name="getPostByIdTest"/>
+                <include name="updatePostByPatchMethodTest"/>
+            </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

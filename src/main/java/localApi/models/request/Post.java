@@ -1,4 +1,4 @@
-package com.gioinn.models;
+package localApi.models.request;
 
 import lombok.Data;
 
