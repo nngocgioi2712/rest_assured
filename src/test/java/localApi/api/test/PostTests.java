@@ -2,7 +2,6 @@ package localApi.api.test;
 
 import io.restassured.response.Response;
 import localApi.api.endpoints.PostEndpoints;
-import localApi.base.BaseTest;
 import localApi.models.request.Post;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;

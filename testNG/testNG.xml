@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="local_api">
+    <listeners>
+        <listener class-name="localApi.utils.reports.ExtentReportManagement"></listener>
+    </listeners>
     <test name="context_1">
         <classes>
             <class name="localApi.api.test.PostTests"/>
