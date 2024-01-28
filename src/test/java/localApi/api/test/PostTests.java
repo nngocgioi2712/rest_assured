@@ -3,6 +3,7 @@ package localApi.api.test;
 import io.restassured.response.Response;
 import localApi.api.endpoints.PostEndpoints;
 import localApi.models.request.Post;
+import localApi.utilities.logs.Log;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,7 @@ public class PostTests {
     PostEndpoints postEndpoints = new PostEndpoints();
     @Test (priority = 0)
     public void createPostTest(ITestContext context) {
+        Log.info("***************Create Post***********");
         Post post = new Post();
         Random rand = new Random();
         int id = rand.nextInt(100,10000);
@@ -22,7 +24,6 @@ public class PostTests {
         post.setUser("1");
 
         Response res = postEndpoints.createPost(post);
-
         context.setAttribute("id", res.jsonPath().getString("id"));
         res.then()
                 .assertThat()
@@ -32,6 +33,7 @@ public class PostTests {
 
     @Test (priority = 1)
     public void getPostListTest() {
+        Log.info("***************Get Posts List***********");
         Response res = postEndpoints.getPostList();
         res.then()
                 .assertThat()
@@ -41,6 +43,7 @@ public class PostTests {
 
     @Test (priority = 2)
     public void getPostByIdTest(ITestContext context) {
+        Log.info("***************Get Post***********");
         Response res = postEndpoints.getPostByID((String) context.getAttribute("id"));
         res.then()
                 .assertThat()
@@ -49,6 +52,7 @@ public class PostTests {
 
     @Test (priority = 3)
     public void updatePostByPatchMethodTest(ITestContext context) {
+        Log.info("***************Update Post By Patch***********");
         HashMap post = new HashMap();
         post.put("title", "only change title");
 
@@ -61,6 +65,7 @@ public class PostTests {
 
     @Test (priority = 4)
     public void updatePostByPutMethodTest(ITestContext context) {
+        Log.info("***************Update Post By Put***********");
         HashMap post = new HashMap();
         post.put("title", "only change title");
 
@@ -72,6 +77,7 @@ public class PostTests {
 
     @Test (priority = 5)
     public void deletePostTest(ITestContext context) {
+        Log.info("***************Delete Post***********");
         Response res = postEndpoints.deletePost((String) context.getAttribute("id"));
         res.then()
                 .assertThat()

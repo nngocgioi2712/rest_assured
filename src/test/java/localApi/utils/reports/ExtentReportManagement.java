@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterConfig;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import localApi.utilities.logs.Log;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -36,17 +37,21 @@ public class ExtentReportManagement implements ITestListener {
 
     public void onTestSuccess(ITestResult result) {
         ExtentTest test = extent.createTest(result.getName());
+        test.createNode(result.getName());
         test.log(Status.PASS, "Test Passed");
+        Log.info("Test Passed");
     }
 
     public void onTestFailure(ITestResult result) {
         ExtentTest test = extent.createTest(result.getName());
         test.log(Status.FAIL, "Test Failed");
+        Log.error("Test Failed");
     }
 
     public void onTestSkipped(ITestResult result) {
         ExtentTest test = extent.createTest(result.getName());
         test.log(Status.SKIP, "Test Skipped");
+        Log.warn("Test Skipped");
     }
 
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
@@ -56,8 +61,7 @@ public class ExtentReportManagement implements ITestListener {
         this.onTestFailure(result);
     }
 
-
-
+    
     public void onFinish(ITestContext context) {
         extent.flush();
     }
